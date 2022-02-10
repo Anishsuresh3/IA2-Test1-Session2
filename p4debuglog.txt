@@ -1,0 +1,187 @@
+ gcc -g p4final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8f8: file p4final.c, line 42.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4final.c:42
+42  {
+(gdb) n
+43      int n=input_array_size();
+(gdb) s
+input_array_size () at p4final.c:3
+3   {
+(gdb) n
+5       printf("Enter the array size:\n");
+(gdb) n
+Enter the array size:
+6       scanf("%d",&x);
+(gdb) n
+4
+7       return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p4final.c:44
+44      int a[n],sum;
+(gdb) n
+45      input_array(n,a);
+(gdb) s
+input_array (n=4, a=0x7ffe49a34290) at p4final.c:11
+11      printf("Enter the array elements:\n");
+(gdb) n
+Enter the array elements:
+12      for(int i=0;i<n;i++)
+(gdb) n
+13          scanf("%d",&a[i]);
+(gdb) n
+2
+12      for(int i=0;i<n;i++)
+(gdb) n
+13          scanf("%d",&a[i]);
+(gdb) n
+8
+12      for(int i=0;i<n;i++)
+(gdb) n
+13          scanf("%d",&a[i]);
+(gdb) n
+4
+12      for(int i=0;i<n;i++)
+(gdb) n
+13          scanf("%d",&a[i]);
+(gdb) n
+3
+12      for(int i=0;i<n;i++)
+(gdb) n
+14  }
+(gdb) n
+main () at p4final.c:46
+46      sum=sum_composite_numbers(n,a);
+(gdb) s
+sum_composite_numbers (n=4, a=0x7ffe49a34290) at p4final.c:28
+28      int i,sum=0;
+(gdb) n
+29      for(i=0;i<n;i++)
+(gdb) n
+31          if(is_composite(a[i])>2)
+(gdb) n
+29      for(i=0;i<n;i++)
+(gdb) n
+31          if(is_composite(a[i])>2)
+(gdb) n
+32             sum+=a[i];
+(gdb) n
+29      for(i=0;i<n;i++)
+(gdb) p sum
+$1 = 8
+(gdb) n
+31          if(is_composite(a[i])>2)
+(gdb) s
+is_composite (n=4) at p4final.c:17
+17      int x=n;
+(gdb) n
+18      int count=0;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+22             count++;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+22             count++;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+22             count++;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+24      return count;
+(gdb) n
+25  }
+(gdb) n
+sum_composite_numbers (n=4, a=0x7ffe49a34290) at p4final.c:32
+32             sum+=a[i];
+(gdb) n
+29      for(i=0;i<n;i++)
+(gdb) n
+31          if(is_composite(a[i])>2)
+(gdb) s
+is_composite (n=3) at p4final.c:17
+17      int x=n;
+(gdb) n
+18      int count=0;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+22             count++;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+21          if(n%i==0)
+(gdb) n
+22             count++;
+(gdb) n
+19      for(int i=1;i<=x;i++)
+(gdb) n
+24      return count;
+(gdb) n
+25  }
+(gdb) n
+sum_composite_numbers (n=4, a=0x7ffe49a34290) at p4final.c:29
+29      for(i=0;i<n;i++)
+(gdb) n
+34      return sum;
+(gdb) n
+35  }
+(gdb) n
+47      out_put(sum);
+(gdb) s
+out_put (sum=12) at p4final.c:38
+38      printf("The Sum of composite is %d\n",sum);
+(gdb) n
+The Sum of composite is 12
+40  }
+(gdb) n
+main () at p4final.c:48
+48      return 0;
+(gdb) n
+49  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 1967] will be killed.
+
+Quit anyway? (y or n) y
